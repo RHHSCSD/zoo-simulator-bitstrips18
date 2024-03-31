@@ -8,37 +8,52 @@ package zoosim;
  *
  * @author peter
  */
-public class Animal implements IEntity{
+
+   enum Gender {
+         M,
+         F
+   };
+
+//location of the animal in reference to a coordinate grid
+public abstract class Animal implements IEntity{
     public int id;
+    //unique identifier for each animal
     public String name;
     public String species;
-    public char gender;
+    private Gender sex;
     public int age;
-    public position(int xlocation, int ylocation);
-    public String sizel;
-    public int direction;
+    public Position position;
+    public int size;
+    public int speed;
+    public double direction;
     public int hunger;
     public int fatigue;
     public String sound;
-    public image Image;
+    public Image image;
    
-    public void makeSound(){
-        System.out.println(animalSound);
+
+public void makeSound(){
+        System.out.println(this.sound);
     }
-    public move(int x, int y){
-        xlocation = xlocation + x;
-        ylocation = ylocation + y;
+    public void move(int x, int y){
+        this.position.x +=  x;
+        this.position.y += y;
        
     }
     public void eat(){
-        hunger = 0;
+        this.hunger = 0;
         System.out.println("Full Appetite");
     }
     public void sleep(){
-     fatigue = 0;
+     this.fatigue = 0;
      System.out.println("Well Rested");
     }
-    public turn(String direction, double degrees){
-        
+    
+    public void turn(double degrees){
+        this.direction +=degrees;
     }
+    /**
+     * Turns the animal clockwise by a specific number of degrees
+     * @param degrees 
+     */
 }

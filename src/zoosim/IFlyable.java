@@ -9,5 +9,10 @@ package zoosim;
  * @author peter
  */
 public interface IFlyable {
+   
+    public void fly();
+   
+    public void land();
     
+    public boolean isFlying();
 }

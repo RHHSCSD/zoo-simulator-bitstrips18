@@ -10,4 +10,8 @@ package zoosim;
  */
 public interface ISwimmable {
     
+   
+    public void dive();
+    public void surface();
+    public boolean isDiving();
 }

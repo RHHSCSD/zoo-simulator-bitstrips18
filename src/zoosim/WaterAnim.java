@@ -11,6 +11,10 @@ package zoosim;
 public class WaterAnim extends Animal implements ISwimmable{
     public boolean canBreathe;
     public boolean diving;
+    WaterAnim(String sound,Gender sex, int size, String name, int age) {
+		super(sound,sex,size,name,age);
+		
+	}
     //the location of the animal, either above or underwater
     public void dive(){
         diving = true;

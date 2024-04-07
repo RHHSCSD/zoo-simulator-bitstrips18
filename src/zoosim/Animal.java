@@ -31,6 +31,13 @@ public abstract class Animal implements IEntity{
     private int fatigue;
     private String sound;
     private Image image;
+   Animal(String sound,Gender sex, int size, String name, int age) {
+    	this.sound= sound;
+    	this.sex = sex;
+    	this.size = size;
+    	this.name = name;
+    	this.age = age;
+    }
    
     /**
      * @return the animal name

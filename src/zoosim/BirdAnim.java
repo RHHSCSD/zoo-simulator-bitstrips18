@@ -8,7 +8,7 @@ package zoosim;
  *
  * @author peter
  */
-public abstract class BirdAnim extends Animal implements IFlyable{
+public class BirdAnim extends Animal implements IFlyable{
     public boolean canFly;
     public boolean flying;
     //The location of the animal, either landed or flying
@@ -31,4 +31,8 @@ public abstract class BirdAnim extends Animal implements IFlyable{
     public boolean isFlying(){
     return flying;
 }
+    @Override public void turn(int degrees){}
+    
+@Override public void place(int x, int y){}
+  
 }

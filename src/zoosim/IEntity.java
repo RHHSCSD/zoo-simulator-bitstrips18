@@ -9,8 +9,8 @@ package zoosim;
  * @author peter
  */
 public interface IEntity extends IObject{
-    public void move(int x, int y, int turn);
-    public void makeSound();
-    public void eat();
-    public void sleep();
+    void move(int x, int y, int turn);
+    void makeSound();
+    void eat();
+    void sleep();
 }

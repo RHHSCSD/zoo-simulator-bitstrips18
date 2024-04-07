@@ -46,7 +46,8 @@ public class ZooSim {
     }
     public static void main(String[] args) {
 
-
+        Animal aAnimal = new WaterAnim();
+        
     }
     
 }

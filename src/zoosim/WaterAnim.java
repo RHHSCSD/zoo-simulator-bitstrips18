@@ -8,7 +8,7 @@ package zoosim;
  *
  * @author peter
  */
-public abstract class WaterAnim extends Animal implements ISwimmable{
+public class WaterAnim extends Animal implements ISwimmable{
     public boolean canBreathe;
     public boolean diving;
     //the location of the animal, either above or underwater
@@ -31,4 +31,8 @@ public abstract class WaterAnim extends Animal implements ISwimmable{
      * Checks if the animal is currently diving
      * @return the diving variable
      */
+@Override public void turn(int degrees){}
+    
+@Override public void place(int x, int y){}
+    
 }

@@ -9,17 +9,30 @@ package zoosim;
  * @author peter
  */
 public class ZooObjects implements IObject{
-    public String type;
+    private String type;
     private Position position;
-    public String size;
+    private String size;
 
-    public int turn(int degrees){
+    /**
+     * Rotates the direction of the zoo object by int degrees
+     * @param degrees
+     * @return objectDeg
+     */
+    @Override
+    public void turn(int degrees){
         int objectDeg = degrees;
-        return objectDeg;
+        
     }
-    public Position place(int x, int y){
+    /**
+     * Places the object at the assigned x and y coordinates
+     * @param x
+     * @param y
+     * @return 
+     */
+    @Override
+    public void place(int x, int y){
         this.position.x = x;
         this.position.y = y;
-        return this.position;
+        
     }
 }

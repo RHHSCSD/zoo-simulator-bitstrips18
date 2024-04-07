@@ -9,9 +9,9 @@ package zoosim;
  * @author peter
  */
 public interface IObject {
-     int turn(int degrees);
+void turn(int degrees);
     
-     Position place(int x, int y);
+void place(int x, int y);
     
 }
 

@@ -8,6 +8,9 @@ package zoosim;
  *
  * @author peter
  */
-public abstract class LandAnim extends Animal{
+public class LandAnim extends Animal{
+    @Override public void turn(int degrees){}
     
+@Override public void place(int x, int y){}
+  
 }

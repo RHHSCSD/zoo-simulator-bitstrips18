@@ -38,7 +38,9 @@ public abstract class Animal implements IEntity{
     	this.name = name;
     	this.age = age;
     }
-   
+   public void setSpeed(int speed) {
+        this.speed = speed;
+    }
     /**
      * @return the animal name
      */
@@ -87,9 +89,12 @@ public void makeSound(){
     public void turn(double degrees){
         this.direction +=degrees;
     }
-    @Override
-    public void move(int x, int y, int turn){
-        
+   
+   @Override
+	 public void move(int time){
+        double movement = this.speed * time;
+        System.out.println("The animail moved " + movement);
+       
     }
     
 }

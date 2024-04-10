@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package zoosim;
+
 import java.util.ArrayList;
+
 /**
  *
  * @author michael.roy-diclemen
@@ -20,22 +22,24 @@ public class ZooSim {
         return animals;
 
     }
+
     public void zooStats() {
 
         System.out.println("The zoo has the following statistics:");
     }
+
     public void feedAnimals() {
         //loop animals and feed each one
-        for(Animal i : this.animals){
+        for (Animal i : this.animals) {
             i.eat();
         }
         System.out.println("All Animals fed");
-        
+
     }
 
     public void restAnimals() {
         //call sleep methods for all tired animals
-        for(Animal i : this.animals){
+        for (Animal i : this.animals) {
             i.sleep();
         }
         System.out.println("All Animals Asleep");
@@ -44,12 +48,14 @@ public class ZooSim {
     public void moveAll() {
         //call move methods for all  animals
     }
+
     public static void main(String[] args) {
 
-        Animal aAnimal = new WaterAnim();
-        
+        //Testing example of class instances
+        Animal aAnimal = new WaterAnim("Baaw", Gender.M, 3, "Har", 4);
+        aAnimal.eat();
     }
-    
+
 }
 
 /**

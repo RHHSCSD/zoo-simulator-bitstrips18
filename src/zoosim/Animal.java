@@ -5,19 +5,15 @@
 package zoosim;
 
 /**
+ * This class is abstract, and when the object is created, the properties of
+ * sound, size, name, age and sex should be provided
  *
  * @author peter
  */
 
-   enum Gender {
-         M,
-         F
-   };
-
 //location of the animal in reference to a coordinate grid
-public abstract class Animal implements IEntity{
+public abstract class Animal implements IEntity {
 
-    public int id;
     //unique identifier for each animal
     private String name;
     private String species;
@@ -25,23 +21,43 @@ public abstract class Animal implements IEntity{
     private int age;
     private Position position;
     private int size;
-    public int speed;
-    public double direction;
+    private int speed;
+    private double direction;
     private int hunger;
     private int fatigue;
     private String sound;
     private Image image;
-   Animal(String sound,Gender sex, int size, String name, int age) {
-    	this.sound= sound;
-    	this.sex = sex;
-    	this.size = size;
-    	this.name = name;
-    	this.age = age;
+
+    Animal(String sound, Gender sex, int size, String name, int age) {
+        this.sound = sound;
+        this.sex = sex;
+        this.size = size;
+        this.name = name;
+        this.age = age;
     }
-   public void setSpeed(int speed) {
+
+    /**
+     * Changes the speed of the animal
+     *
+     * @param speed
+     */
+    public void setSpeed(int speed) {
         this.speed = speed;
     }
+
     /**
+     * Retrieves the animal location
+     *
+     * @param position
+     * @return animal position
+     */
+    public Position getPosition(Position position) {
+        return position;
+    }
+
+    /**
+     * retrieves animal name
+     *
      * @return the animal name
      */
     public String getName() {
@@ -54,47 +70,66 @@ public abstract class Animal implements IEntity{
     public void setName(String name) {
         this.name = name;
     }
-    
-    
-@Override
-public void makeSound(){
+
+    /**
+     * retrieves animal species
+     *
+     * @return the species of the animal
+     */
+    public String getSpecies() {
+        return species;
+    }
+
+    /**
+     * Outputs the sound associated with the animal
+     */
+    @Override
+    public void makeSound() {
         System.out.println(this.sound);
     }
-    public void move(int x, int y){
-        this.position.x +=  x;
-        this.position.y += y;
-       
-    }
+
     /**
      * Resets the animal hunger to 0 and prints a message
      */
     @Override
-    public void eat(){
+    public void eat() {
         this.hunger = 0;
         System.out.println("Full Appetite");
     }
+
     /**
      * Resets the animal fatigue to 0 and prints a message
      */
     @Override
-    public void sleep(){
-     this.fatigue = 0;
-     System.out.println("Well Rested");
+    public void sleep() {
+        this.fatigue = 0;
+        System.out.println("Well Rested");
     }
+
     /**
      * Turns the animal clockwise by a specific number of degrees
-     * @param degrees 
+     *
+     * @param degrees
      */
-   
-    public void turn(double degrees){
-        this.direction +=degrees;
+
+    public void turn(double degrees) {
+        this.direction += degrees;
     }
-   
-   @Override
-	 public void move(int time){
-        double movement = this.speed * time;
-        System.out.println("The animail moved " + movement);
-       
+
+    /**
+     * Moves the animal on the grid to a new location depending on the speed and
+     * the angle
+     */
+    public void move() {
+        //turn direction (degrees) into Radians using Math.toRadians
+        double radDirection = Math.toRadians(this.direction);
+        //figure out the amount to move.
+        double moveX = this.speed * (Math.cos(radDirection));
+        double moveY = this.speed * (Math.sin(radDirection));
+        //change the x value.
+        this.position.x += (int) moveX;
+        //change y value
+        this.position.y += (int) moveY;
     }
-    
+
 }
